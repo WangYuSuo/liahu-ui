@@ -16,7 +16,16 @@ Demo:
 import React from 'react';
 import { Button } from 'liahu-ui';
 
-export default () => <Button>dialog example</Button>;
+const clickBtn = (res) => {
+  console.log('点击按钮');
+  res();
+};
+
+export default () => (
+  <Button onClick={clickBtn} type="primary">
+    click me
+  </Button>
+);
 ```
 
 LiaHu web button component;

@@ -6,8 +6,14 @@
     "jsx": "react",
     "esModuleInterop": true,
     "types": ["jest"],
+    "baseUrl": "./",
     "strict": true,
     "skipLibCheck": true,
-    "declaration": true
+    "declaration": true,
+    "paths": {
+      "@/*": ["src/*"],
+      "@@/*": ["src/.umi/*"],
+      "liahu-ui": ["src/index.ts"]
+    }
   }
 }
