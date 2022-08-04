@@ -14,7 +14,7 @@ interface ButtonType extends Omit<ButtonProps, 'onClick'> {
   onClick?: (completeCallback: () => void) => void;
 }
 
-const Buttons: FC<ButtonType> = ({
+const HuButton: FC<ButtonType> = ({
   txt = '点击',
   onClick = (completeCallback) => {
     completeCallback();
@@ -36,4 +36,4 @@ const Buttons: FC<ButtonType> = ({
     </Button>
   );
 };
-export default Buttons;
+export default HuButton;
