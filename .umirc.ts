@@ -5,7 +5,10 @@ export default defineConfig({
   title: 'LiaHu',
   favicon: BaseUrl + '/images/logoicn.ico',
   logo: BaseUrl + '/images/logo@2x.png',
-  links: [{ rel: 'stylesheet', type: 'text/css', href: '../css/dumi.css' }],
+  links: [
+    { rel: 'stylesheet', type: 'text/css', href: '../css/dumi.css' },
+    // { rel: 'stylesheet', type: 'text/css', href: '../css/dumi.less' },
+  ],
   //按需加载
   extraBabelPlugins: [
     [
