@@ -2,7 +2,7 @@
   "private": false,
   "name": "liahu-ui",
   "author": "wangyusuo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A library of react components",
   "homepage": "https://wangyusuo.github.io/liahu-ui",
   "repository": {
@@ -47,6 +47,7 @@
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^13.0.0",
     "@types/jest": "^27.0.3",
+    "@types/lodash": "^4.14.184",
     "@umijs/fabric": "^2.8.1",
     "@umijs/plugin-sass": "^1.1.1",
     "@umijs/test": "^3.0.5",

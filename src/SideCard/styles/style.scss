@@ -1,0 +1,57 @@
+.fire-card{
+  margin-bottom: 10px;
+  color: #121212;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 2px;
+  box-sizing: border-box;
+  .fire-card-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0 20px;
+    border-bottom: 1px solid #f6f6f6;
+    box-sizing: border-box;
+    .card-head-txt{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: 600;
+      font-synthesis: style;
+    }
+  }
+  .fire-card-items{
+    padding: 8px 16px;
+    .fire-card-item{
+      margin: 6px 0;
+      overflow: hidden;
+      .card-item-link{
+        display: inline-flex;
+        align-items: center;
+        font-size: 14px;
+        width: 100%;
+        overflow: hidden;
+        color: #121212;
+        line-height: 21px;
+        .card-item-txt{
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+      }
+      .card-item-hot{
+        margin-left: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        color: rgb(250, 41, 37);
+      }
+    }
+    .fire-no-data{
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 400;
+      color: #868d9a;
+    }
+  }
+}

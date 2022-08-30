@@ -15,7 +15,7 @@ interface ButtonType extends Omit<ButtonProps, 'onClick'> {
 }
 
 const HuButton: FC<ButtonType> = ({
-  txt = '点击',
+  txt = '按钮',
   onClick = (completeCallback) => {
     completeCallback();
   },

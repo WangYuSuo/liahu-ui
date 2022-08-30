@@ -42,5 +42,5 @@ npm whoami --registry https://registry.npmjs.org
 ```
 
 ```github Pages
-  https://wangyusuo.github.io/liahu-ui/index.html
+  https://wangyusuo.github.io/liahu-ui/
 ```
