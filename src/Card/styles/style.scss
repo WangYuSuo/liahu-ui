@@ -150,8 +150,14 @@
             color: #fff;
             background: #056de8;
           }
-          .update-time{
+          .create-time{
             margin-left: 16px;
+            color: #8590a6;
+          }
+          .view-count{
+            margin-left: 12px;
+            display: flex;
+            align-items: center;
             color: #8590a6;
           }
         }

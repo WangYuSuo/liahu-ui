@@ -27,6 +27,7 @@ let data = {
   object: {
     url: 'https://api.zhihu.com/answers/1965877391',
     created_time: 1624848564,
+    view_count: 11,
     updated_time: 1645432660,
     excerpt:
       '（错误的理解是：<em>JS</em>就是写代码 特点是乱七八糟） 2 必不可少的清晰的学习路线 第一阶段：<em>JS</em>基础 包括：<em>JS</em>基本语法，<em>JS</em>循环语句，函数和数组 <em>JS</em>对象 <em>JS</em>浏览器BOM和HTML',
