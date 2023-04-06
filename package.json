@@ -2,7 +2,7 @@
   "private": false,
   "name": "liahu-ui",
   "author": "wangyusuo",
-  "version": "1.0.2",
+  "version": "1.0.8",
   "description": "A library of react components",
   "homepage": "https://wangyusuo.github.io/liahu-ui",
   "repository": {
@@ -27,7 +27,7 @@
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
   "sideEffects": [
-    "./src/**/*.scss"
+    "./**/*.scss"
   ],
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -43,7 +43,11 @@
   "dependencies": {
     "react": "^18.0.0"
   },
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
   "devDependencies": {
+    "@emotion/css": "^11.10.0",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^13.0.0",
     "@types/jest": "^27.0.3",

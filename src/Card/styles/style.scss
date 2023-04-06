@@ -98,6 +98,63 @@
             }
           }
         }
+        .feedback_boxs{
+          align-items: center;
+          color: #646464;
+          display: flex;
+          margin: 0 -20px -10px;
+          padding: 10px 20px;
+        }
+        .feedback_box{
+          font-size: 14px;
+        }
+        .Button {
+          background: none;
+          border: 1px solid;
+          border-radius: 3px;
+          cursor: pointer;
+          display: inline-block;
+          font-size: 14px;
+          line-height: 32px;
+          padding: 0 16px;
+          text-align: center;
+        }
+        
+        .VoteButton{
+          color: #056de8;
+          background: rgba(5,109,232,.1);
+          border-color: transparent;
+        }
+        .VoteButton-down{
+          margin-left: 4px;
+        }
+        .feedback_boxs{
+          height: 40px;
+          padding-bottom: 6px;
+          .css-q1mqvc {
+            display: flex;
+            align-items: center;
+            padding: 0;
+            color: rgb(100, 100, 100);
+            background: rgb(255, 255, 255);
+            clear: both;
+          }
+          .VoteButton{
+            line-height: 26px;
+            padding: 0 10px;
+          }
+          .VoteButton-TriangleUp{
+            margin-right: 5px;
+          }
+          .praised{
+            color: #fff;
+            background: #056de8;
+          }
+          .update-time{
+            margin-left: 16px;
+            color: #8590a6;
+          }
+        }
       }
     }
   }

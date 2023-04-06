@@ -33,6 +33,7 @@ $ npm run build
 ```
 
 ```bash
+$ npm config set registry https://registry.npmjs.org/
 $ npm run release
 ```
 

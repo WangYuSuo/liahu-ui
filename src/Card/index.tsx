@@ -1,8 +1,9 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import './styles/style.scss';
 
 interface cardData {
+  id: string;
   viewMore: Boolean;
   buttontxt: string;
   highlight: {
@@ -12,27 +13,78 @@ interface cardData {
   object: {
     url: string;
     created_time: number;
+    updated_time: number;
     excerpt: string;
     content: string;
     author: {
       name: string;
     };
+    relation: {
+      praise_count: number;
+      praise: number;
+      disagree: number;
+    };
   };
+  actions?: (res: object) => void;
 }
 
-const HuCard: FC<cardData> = ({ highlight, object, viewMore, buttontxt = '阅读全文' }) => {
+const HuCard: FC<cardData> = ({
+  id,
+  highlight,
+  object,
+  viewMore,
+  buttontxt = '阅读全文',
+  actions = () => {},
+}) => {
   const [showMore, setShowMore] = useState(viewMore);
   const [btntxt, setBtn] = useState(buttontxt);
+  const [praiseCount, setCount] = useState(object.relation?.praise_count);
+  const [isPraise, setPraise] = useState(object.relation?.praise);
+  const [disagree, setDisagree] = useState(object.relation?.disagree);
+  const [praiseTxt, setPraiseTxt] = useState('赞同');
 
+  const goPraise = (type = 1) => {
+    if (type == 1) {
+      if (isPraise) {
+        setPraiseTxt('赞同');
+        setCount(praiseCount - 1);
+      } else {
+        setPraiseTxt('已赞同');
+        setDisagree(0);
+        setCount(praiseCount + 1);
+      }
+      setPraise(Number(!isPraise));
+    } else {
+      if (!disagree) {
+        setDisagree(1);
+        setPraiseTxt('赞同');
+        isPraise && setCount(praiseCount - 1);
+        setPraise(0);
+      }
+      setDisagree(Number(!disagree));
+    }
+    actions && actions({ type, id });
+  };
   const changeBtn = () => {
     setShowMore(showMore ? false : true);
     setBtn(showMore ? '收起' : '阅读全文');
   };
-  const showTime = (time: number) => {
-    let newT = dayjs(time * 1000).format('YYYY-MM-DD HH:mm');
-    let text = `编辑于 ${newT}`;
+  const showTime = (time: number, type: string = 'showYear') => {
+    if (!time) return '';
+    let text = '';
+    if (type === 'showYear') {
+      let newT = dayjs(time * 1000).format('YYYY-MM-DD HH:mm');
+      text = `编辑于 ${newT}`;
+    } else {
+      text = dayjs(time * 1000).format('MM-DD') + '更新';
+    }
     return text;
   };
+
+  useEffect(() => {
+    isPraise && setPraiseTxt('已赞同');
+  }, []);
+
   // 模版返回
   return (
     <div className="result-card">
@@ -106,6 +158,60 @@ const HuCard: FC<cardData> = ({ highlight, object, viewMore, buttontxt = '阅读
                       </span>
                     </button>
                   </div>
+                </div>
+              </div>
+            )}
+            {object.relation && (
+              <div className="feedback_boxs">
+                <div className="feedback_box css-q1mqvc">
+                  <span>
+                    <button
+                      type="button"
+                      onClick={() => goPraise()}
+                      className={`Button VoteButton VoteButton-up ${isPraise && 'praised'}`}
+                    >
+                      <span>
+                        &#8203;
+                        <svg
+                          width="10"
+                          height="10"
+                          viewBox="0 0 24 24"
+                          className="Zi Zi--TriangleUp VoteButton-TriangleUp"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M13.792 3.681c-.781-1.406-2.803-1.406-3.584 0l-7.79 14.023c-.76 1.367.228 3.046 1.791 3.046h15.582c1.563 0 2.55-1.68 1.791-3.046l-7.79-14.023Z"
+                            clipRule="evenodd"
+                          ></path>
+                        </svg>
+                      </span>
+                      {praiseTxt + ' '}
+                      {praiseCount || ''}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => goPraise(2)}
+                      className={`Button VoteButton VoteButton-down ${disagree && 'praised'}`}
+                    >
+                      <span>
+                        &#8203;
+                        <svg
+                          width="10"
+                          height="10"
+                          viewBox="0 0 24 24"
+                          className="Zi Zi--TriangleDown"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M13.792 20.319c-.781 1.406-2.803 1.406-3.584 0L2.418 6.296c-.76-1.367.228-3.046 1.791-3.046h15.582c1.563 0 2.55 1.68 1.791 3.046l-7.79 14.023Z"
+                            clipRule="evenodd"
+                          ></path>
+                        </svg>
+                      </span>
+                    </button>
+                  </span>
+                  <span className="update-time">{showTime(object.updated_time, '!showYear')}</span>
                 </div>
               </div>
             )}
